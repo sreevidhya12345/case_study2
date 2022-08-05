@@ -21,7 +21,7 @@ booksRouter.get('/',function(req,res){
 
 
 //router to render addbook page
-booksRouter.get('/api/addbook',function(req,res){
+booksRouter.get('/addbook',function(req,res){
     res.render('addbook',{});
 
 });
@@ -30,7 +30,7 @@ booksRouter.get('/api/addbook',function(req,res){
 
 
 //router to add book
-booksRouter.post('/api/add', function (req, res) {
+booksRouter.post('/add', function (req, res) {
 
         var item={
             title:req.body.title,
@@ -48,7 +48,7 @@ booksRouter.post('/api/add', function (req, res) {
 
 
 //router for singlebook
-booksRouter.get('/api/:id',function(req,res){
+booksRouter.get('/:id',function(req,res){
     const id = req.params.id;
     bookdata.findOne({ _id: id })
             .then(function (book) {
@@ -64,7 +64,7 @@ booksRouter.get('/api/:id',function(req,res){
 
 
 //router to delete book
-booksRouter.post('/api/delete', function (req, res) {
+booksRouter.post('/delete', function (req, res) {
 
     const id = req.body.id;  
 
@@ -95,7 +95,7 @@ booksRouter.post('/edit', function (req, res) {
 
 
 //router to update book
-booksRouter.post('/api/update', function (req, res) {
+booksRouter.post('/update', function (req, res) {
 
     bookdata.findByIdAndUpdate(req.body.id, { $set: req.body }, function (err, data) {
         if (err) {
