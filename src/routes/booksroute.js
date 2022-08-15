@@ -3,8 +3,6 @@ const booksRouter = express.Router();
  const books = require('../data/books');
 const bookdata = require('../model/BookModel');
 
-
-
 //router to render books page
 booksRouter.get('/',function(req,res){
 
@@ -17,8 +15,6 @@ booksRouter.get('/',function(req,res){
 
     })
 })
-
-
 
 //router to render addbook page
 booksRouter.get('/addbook',function(req,res){
