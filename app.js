@@ -44,11 +44,11 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.json());
 app.use(express.static(path.join(__dirname , '/public'))); 
 
-app.use('/api/login',loginRouter); 
-app.use('/api/signup',signupRouter); 
-app.use('/api/home',homeRouter); 
-app.use('/api/books',booksRouter); 
-app.use('/api/authors',authorsRouter); 
+app.use('/login',loginRouter); 
+app.use('/signup',signupRouter); 
+app.use('/home',homeRouter); 
+app.use('/books',booksRouter); 
+app.use('/authors',authorsRouter); 
 
 
 
@@ -63,9 +63,10 @@ app.get('/',function(req,res){
 
 
 
-app.listen(5000,()=>{
-    console.log("Server Ready on 5000");
-});
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });
+
 
 // part 1 #change main from server.js to app.js
 // part1# point2 install node modules
